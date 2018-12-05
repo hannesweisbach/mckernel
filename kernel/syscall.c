@@ -9242,6 +9242,22 @@ static void do_mod_exit(int status){
 }
 #endif
 
+SYSCALL_DECLARE(rdmsr)
+{
+    const unsigned int counter = ihk_mc_syscall_arg0(ctx);
+    kprintf("%s: %u\n", __func__, counter);
+    return rdmsr(counter);
+}
+
+SYSCALL_DECLARE(wrmsr)
+{
+    const unsigned int counter = ihk_mc_syscall_arg0(ctx);
+    const unsigned long value = ihk_mc_syscall_arg1(ctx);
+    wrmsr(counter, value);
+
+    return 0;
+}
+
 #ifdef ENABLE_PERF
 /* select counter type */
 SYSCALL_DECLARE(pmc_init)
