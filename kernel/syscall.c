@@ -9265,9 +9265,10 @@ SYSCALL_DECLARE(pmc_init)
     int counter = ihk_mc_syscall_arg0(ctx);
 
     enum ihk_perfctr_type type = (enum ihk_perfctr_type)ihk_mc_syscall_arg1(ctx);
+    int mode = ihk_mc_syscall_arg2(ctx);
     /* see ihk/manycore/generic/include/ihk/perfctr.h */
 
-    int mode = PERFCTR_USER_MODE;
+    mode |= PERFCTR_USER_MODE;
 
     return ihk_mc_perfctr_init(counter, type, mode);
 }

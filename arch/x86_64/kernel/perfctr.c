@@ -247,6 +247,9 @@ int ihk_mc_perfctr_init(int counter, enum ihk_perfctr_type type, int mode)
 	if (counter < 0 || counter >= NUM_PERF_COUNTERS) {
 		return -EINVAL;
 	}
+	if (mode & PERFCTR_CONFIG_RAW) {
+		return set_perfctr_x86_direct(counter, mode, type);
+	}
 	if (type < 0 || type >= PERFCTR_MAX_TYPE) {
 		return -EINVAL;
 	}

@@ -22,6 +22,7 @@
 
 #define PERFCTR_USER_MODE   0x01
 #define PERFCTR_KERNEL_MODE 0x02
+#define PERFCTR_CONFIG_RAW  0x04
 
 enum ihk_perfctr_type {
 	APT_TYPE_DATA_PAGE_WALK,
