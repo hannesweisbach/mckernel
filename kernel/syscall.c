@@ -9814,6 +9814,11 @@ long syscall(int num, ihk_mc_user_context_t *ctx)
 	struct cpu_local_var *v = get_this_cpu_local_var();
 	struct thread *thread = v->current;
 
+	if(num == 732) {
+		save_syscall_return_value(num, 0);
+		return 0;
+	}
+
 #ifdef DISABLE_SCHED_YIELD
 	if (num != __NR_sched_yield)
 #endif // DISABLE_SCHED_YIELD
