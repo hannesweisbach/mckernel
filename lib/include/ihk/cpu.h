@@ -135,6 +135,9 @@ enum ihk_asr_type {
 
 #ifndef POSTK_DEBUG_ARCH_DEP_75 /* x86 depend hide */
 #define LOCAL_SMP_FUNC_CALL_VECTOR   0xf1
+#define LOCAL_SMP_NULL_VECTOR        0xf2
+#define LOCAL_SMP_PING_VECTOR        0xf3
+#define LOCAL_SMP_PONG_VECTOR        0xf4
 #endif /* !POSTK_DEBUG_ARCH_DEP_75 */
 
 int ihk_mc_arch_set_special_register(enum ihk_asr_type, unsigned long value);

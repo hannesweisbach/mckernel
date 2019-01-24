@@ -170,4 +170,5 @@ SYSCALL_HANDLED(811, linux_spawn)
 
 SYSCALL_HANDLED(850, rdmsr)
 SYSCALL_HANDLED(851, wrmsr)
+SYSCALL_HANDLED(852, measure_ipi)
 /**** End of File ****/
